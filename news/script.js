@@ -5,8 +5,11 @@ const newsContainer = document.getElementById("newsContainer");
 const globalApiKey = "37617593c076438597489bd271b222fc";
 const globalApiUrl = "https://newsapi.org/v2/top-headlines";
 
-const indianApiKey = "37617593c076438597489bd271b222fc";
-const indianApiUrl = "https://newsapi.org/v2/top-headlines";
+// const globalApiKey = "4a8d08c2703e048ef736a6c1f72a72d1";
+// const globalApiUrl = "https://gnews.io/api/v4/search";
+
+
+
 
 function fetchNews(apiKey, apiUrl, searchQuery) {
     const url = `${apiUrl}?q=${searchQuery}&apiKey=${apiKey}`;
@@ -70,7 +73,6 @@ searchButton.addEventListener("click", () => {
         // Fetch global news
         fetchNews(globalApiKey, globalApiUrl, searchQuery);
 
-        // Fetch Indian news
-        fetchNews(indianApiKey, indianApiUrl, searchQuery);
+
     }
 });

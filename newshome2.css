@@ -19,7 +19,7 @@ body {
 .bannerHome{
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.75)), url('./newsbg.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.75)), url('/images/newsbg.jpg');
   
   background-size: cover ;
   background-repeat: no-repeat;
@@ -124,15 +124,7 @@ header {
 
 }
 
-.contact-container{
-  width: 100%;
-  height: 100vh;
-  background-image: url(../images/bg\ newyork1.jpg);
-  background-size: cover;
-  background-attachment: relative;
-  background-position: center;
-  position: relative;
-}
+
 
 
 .about-container{
@@ -206,30 +198,6 @@ header {
 }
 
 
-
-
-.contactContainer{
-  width: 85%;
-  background: #fff;
-  border-radius: 6px;
-  padding: 20px 60px 30px 40px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-.contactContainer .content{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.contactContainer .content .left-side{
-  width: 25%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 15px;
-  position: relative;
-}
 .content .left-side::before{
   content: '';
   position: absolute;
@@ -257,10 +225,6 @@ header {
 .content .left-side .details .text-two{
   font-size: 1vw;
   color: #171718;
-}
-.contactContainer .content .right-side{
-  width: 75%;
-  margin-left: 75px;
 }
 .content .right-side .topic-text{
   font-size: 2vw;
@@ -401,4 +365,18 @@ header {
   height: 10px;
   object-fit: cover;
   border-radius: 6px;
+}
+
+.about-section{
+  font-size: 2vw;
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.75)), url('/images/aboutBG.jpg');
+  background-size: cover ;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+   background-position: center;
+   
+}
+
+.about-section h2{
+  margin: 50px;
 }
