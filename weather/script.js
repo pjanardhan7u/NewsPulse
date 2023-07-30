@@ -3,27 +3,31 @@ const searchButton = document.getElementById("searchButton");
 const weatherContainer = document.getElementById("weatherContainer");
 
 const apiKey = "fdf43363b4c291d49524c9ed352e0903";
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather";
+const currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather";
+const dailyForecastUrl = "https://api.openweathermap.org/data/2.5/forecast/daily";
 
-function fetchWeatherData(location) {
-    const url = `${apiUrl}?q=${location}&appid=${apiKey}&units=metric`;
+function fetchCurrentWeather(location) {
+    const currentWeatherUrlWithParams = `${currentWeatherUrl}?q=${location}&appid=${apiKey}&units=metric`;
 
-    fetch(url)
+    fetch(currentWeatherUrlWithParams)
         .then((response) => response.json())
-        .then((data) => displayWeather(data))
-        .catch((error) => console.error("Error fetching weather data:", error));
+        .then((data) => {
+            fetchDailyForecast(data.coord.lat, data.coord.lon);
+            displayCurrentWeather(data);
+        })
+        .catch((error) => console.error("Error fetching current weather data:", error));
 }
-// ... (existing code)
 
+function fetchDailyForecast(latitude, longitude) {
+    const dailyForecastUrlWithParams = `${dailyForecastUrl}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&cnt=1`;
 
+    fetch(dailyForecastUrlWithParams)
+        .then((response) => response.json())
+        .then((data) => displayDailyForecast(data))
+        .catch((error) => console.error("Error fetching daily forecast data:", error));
+}
 
-
-
-
-
-
-
-function displayWeather(weatherData) {
+function displayCurrentWeather(weatherData) {
     weatherContainer.innerHTML = '';
 
     const locationName = weatherData.name;
@@ -54,11 +58,31 @@ function displayWeather(weatherData) {
     weatherContainer.appendChild(weatherInfo);
 }
 
-// ... (existing code)
+function displayDailyForecast(dailyForecastData) {
+    const highTemp = dailyForecastData.list[0].temp.max;
+    const lowTemp = dailyForecastData.list[0].temp.min;
+    const chanceOfRain = dailyForecastData.list[0].pop * 100;
 
+    const dailyForecastInfo = document.createElement('div');
+    dailyForecastInfo.classList.add('daily-forecast-info');
+
+    const highTempElement = document.createElement('p');
+    highTempElement.textContent = `High Temperature: ${highTemp}°C`;
+
+    const lowTempElement = document.createElement('p');
+    lowTempElement.textContent = `Low Temperature: ${lowTemp}°C`;
+
+    const chanceOfRainElement = document.createElement('p');
+    chanceOfRainElement.textContent = `Chance of Rain: ${chanceOfRain}%`;
+
+    dailyForecastInfo.appendChild(highTempElement);
+    dailyForecastInfo.appendChild(lowTempElement);
+    dailyForecastInfo.appendChild(chanceOfRainElement);
+
+    weatherContainer.appendChild(dailyForecastInfo);
+}
 
 searchButton.addEventListener("click", () => {
-    
     const location = locationInput.value.trim();
 
     // //if location is empty
@@ -67,10 +91,8 @@ searchButton.addEventListener("click", () => {
         return;
     }
 
-
-
     if (location) {
-        fetchWeatherData(location);
+        fetchCurrentWeather(location);
+        displayDailyForecast(location);
     }
 });
-

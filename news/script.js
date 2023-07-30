@@ -9,8 +9,6 @@ const globalApiUrl = "https://newsapi.org/v2/top-headlines";
 // const globalApiUrl = "https://gnews.io/api/v4/search";
 
 
-
-
 function fetchNews(apiKey, apiUrl, searchQuery) {
     const url = `${apiUrl}?q=${searchQuery}&apiKey=${apiKey}`;
 

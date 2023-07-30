@@ -3,52 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - News Aggregator</title>
+    <title>Weather Forecast</title>
     <link rel="stylesheet" href="test.css">
 </head>
 <body>
     <header>
-        <h1>News Aggregator</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="weather.html">Weather</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Weather Forecast</h1>
     </header>
     <main>
-        <section class="about-section">
-            <div class="about-container">
-                <h2>About Us</h2>
-                <p>Welcome to News Aggregator, your one-stop destination for the latest news and weather updates.</p>
-                <p>Our mission is to keep you informed and up-to-date with the latest happenings around the world, all in one place.</p>
-                <p>Whether it's breaking news, entertainment, sports, technology, or any other topic, we've got you covered!</p>
-                <p>Stay connected with us and get the news that matters to you delivered right to your fingertips.</p>
-            </div>
-        </section>
+        <div class="search-container">
+            <input type="text" id="locationInput" placeholder="Enter location (city name)">
+            <button id="searchButton">Search</button>
+        </div>
+        <div class="weather-container" id="weatherContainer"></div>
     </main>
-    <footer>
-        <p>&copy; 2023 News Aggregator. All rights reserved.</p>
-    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
-
-<main>
-  <section class="about-section">
-      <div class="about-container">
-          <h2>About Us</h2>
-          <p>Welcome to our News Aggregator and Weather web application!</p> 
-          <p>We aim to provide you with a comprehensive and convenient platform for</p> 
-          <p>accessing the latest news and weather updates from around the world.</p>
-          <p> Stay informed on diverse topics, including breaking news, sports, technology,</p>
-          <p> entertainment, and more, all in one place. Our user-friendly interface allows you to</p>
-          <p> filter news by category and search for weather forecasts based on your location. Powered by cutting-edge</p>
-           <p>technologies, including HTML, CSS, and JavaScript, our app seamlessly integrates with multiple APIs to </p>
-           <p></p> ensure up-to-date and reliable information. Discover a seamless experience for staying updated with global</p>
-           <p></p>  news and weather developments, all in the palm of your hand.</p>
-      </div>
-  </section>
-</main>
